@@ -45,7 +45,9 @@ export default {
       formSignIn.append('username', this.formSignIn.username)
       formSignIn.append('password', this.formSignIn.password)
       await this.signInUser(formSignIn)
-      this.$router.push({ name: 'sign-up' })
+      this.$router.push({
+        name: 'sign-up',
+      })
     },
   },
 }

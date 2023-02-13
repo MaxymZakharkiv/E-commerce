@@ -1,5 +1,6 @@
 <template>
   <router-view />
+  <!--  test12345 abcd2jgA@-->
 </template>
 
 <style>
@@ -27,5 +28,5 @@ nav a.router-link-exact-active {
 <script>
 export default {
   components: {},
-};
+}
 </script>

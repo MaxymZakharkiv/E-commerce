@@ -41,7 +41,11 @@ const modulesAuth = {
       }
     },
   },
-  getters: {},
+  getters: {
+    getLoading(state) {
+      return state.loading
+    },
+  },
 }
 
 export default modulesAuth
