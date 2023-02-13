@@ -6,4 +6,11 @@ const http = axios.create({
   baseURL: BASE_URL,
 })
 
+http.interceptors.request.use((config) => {
+  if (localStorage.getItem('token')) {
+    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+  }
+  return config
+})
+
 export default http

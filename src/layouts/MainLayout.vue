@@ -1,13 +1,17 @@
 <template>
+  <TheHeader />
   <router-view></router-view>
 </template>
 
 <script>
+import TheHeader from '@/components/MainComponents/TheHeader'
+
 export default {
-  name: "MainLayout"
+  components: {
+    TheHeader,
+  },
+  name: 'MainLayout',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

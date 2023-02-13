@@ -1,4 +1,4 @@
-import { signIn, signUp } from '@/api/auth'
+import { signIn, signUp, getProfile } from '@/api/auth'
 
 const modulesAuth = {
   namespaced: true,
@@ -6,8 +6,12 @@ const modulesAuth = {
     token: null,
     errors: [],
     loading: false,
+    profile: null,
   },
   mutations: {
+    GET_PROFILE_USER(state, data) {
+      state.profile = data
+    },
     CHANGE_LOADING(state, bool) {
       state.loading = bool
     },
@@ -23,6 +27,7 @@ const modulesAuth = {
       commit('CHANGE_LOADING', true)
       try {
         const response = await signIn(data)
+        localStorage.setItem('token', response.data.access_token)
         commit('SET_TOKEN', response.data.access_token)
       } catch (e) {
         commit('ERROR_AUTH', e)
@@ -40,10 +45,27 @@ const modulesAuth = {
         commit('CHANGE_LOADING', false)
       }
     },
+    async getUserProfile({ commit }) {
+      commit('CHANGE_LOADING', true)
+      try {
+        const response = await getProfile()
+        commit('GET_PROFILE_USER', response.data)
+      } catch (e) {
+        commit('ERROR_AUTH', e)
+      } finally {
+        commit('CHANGE_LOADING', false)
+      }
+    },
   },
   getters: {
     getLoading(state) {
       return state.loading
+    },
+    getToken(state) {
+      return state.token
+    },
+    getProfile(state) {
+      return state.profile
     },
   },
 }

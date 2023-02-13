@@ -3,7 +3,18 @@ export const routes = [
     path: '/',
     name: 'main-layout',
     component: () => import('@/layouts/MainLayout'),
-    children: [],
+    children: [
+      {
+        path: '',
+        name: 'main-page',
+        component: () => import('@/views/Main/MainPage'),
+      },
+      {
+        path: '/my-account',
+        name: 'my-account',
+        component: () => import('@/views/Main/UserAccount'),
+      },
+    ],
   },
   {
     path: '/auth',
@@ -22,4 +33,4 @@ export const routes = [
       },
     ],
   },
-];
+]
