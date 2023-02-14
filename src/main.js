@@ -1,12 +1,14 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
 
-import MInput from '@/components/ui-kit/MInput';
+import MInput from '@/components/ui-kit/MInput'
+import MButton from '@/components/ui-kit/MButton'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.component('MInput', MInput);
+app.component('MInput', MInput)
+app.component('MButton', MButton)
 
-app.use(store).use(router).mount('#app');
+app.use(store).use(router).mount('#app')
