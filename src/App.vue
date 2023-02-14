@@ -1,5 +1,6 @@
 <template>
   <router-view />
+  <m-button rounded outline color="blue"></m-button>
   <!--  test12345 abcd2jgA@-->
 </template>
 
