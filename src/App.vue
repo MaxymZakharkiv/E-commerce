@@ -1,11 +1,18 @@
 <template>
   <router-view />
-  <m-button rounded outline color="blue"></m-button>
+  {{ test }}
+  <m-input v-model:value="test" />
   <!--  test12345 abcd2jgA@-->
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      test: null,
+    }
+  },
+}
 </script>
 
 <style>

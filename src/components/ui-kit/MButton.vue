@@ -17,7 +17,7 @@ export default {
   props: {
     color: {
       type: String,
-      required: true,
+      required: false,
       default: 'blue',
     },
     rounded: {
@@ -37,6 +37,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    flat: {
+      type: Boolean,
+      required: false,
+    },
   },
   computed: {
     classes() {
@@ -44,6 +48,7 @@ export default {
         'btn-rounded': this.rounded,
         'btn-disabled': this.disabled,
         'btn-outline': this.outline,
+        'btn-flat': this.flat,
       }
     },
   },
@@ -115,5 +120,12 @@ export default {
   box-shadow: none;
   color: black;
   background: none;
+}
+
+.btn-flat {
+  border: none;
+  color: black;
+  background: none;
+  box-shadow: none;
 }
 </style>
