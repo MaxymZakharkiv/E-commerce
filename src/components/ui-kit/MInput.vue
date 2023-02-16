@@ -1,23 +1,22 @@
 <template>
   <div>
     <input
-      :value="value"
       v-bind="$attrs"
       :style="{ width: `${width}px` }"
       :type="type"
       :placeholder="placeholder"
-      @input="modelValue"
+      v-model="modelData"
     />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MInput',
+  name: "MInput",
   props: {
     type: {
       type: String,
-      default: 'text',
+      default: "text",
     },
     placeholder: {
       type: String,
@@ -27,14 +26,23 @@ export default {
       type: Number,
       default: 100,
     },
-    value: {
+    modelValue: {
       type: String,
-      default: '',
+    },
+  },
+  computed: {
+    modelData: {
+      get() {
+        return this.modelValue
+      },
+      set(val) {
+        this.$emit("update:modelValue", val)
+      },
     },
   },
   methods: {
-    modelValue(e) {
-      this.$emit('update:value', e.target.value)
+    updateValue(e) {
+      this.$emit("update:value", e.target.value)
     },
   },
 }

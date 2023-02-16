@@ -1,7 +1,7 @@
 <template>
   <router-view />
-  {{ test }}
-  <m-input v-model:value="test" />
+  test -> {{ test }}
+  <m-input v-model="test" />
   <!--  test12345 abcd2jgA@-->
 </template>
 
