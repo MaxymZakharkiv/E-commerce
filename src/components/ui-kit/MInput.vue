@@ -4,12 +4,15 @@
       class="defaulStyleInput"
       :class="classes"
       v-bind="$attrs"
-      :disabled="disabled"
+      :disabled="readonly"
       :style="{ width: `${width}px`, height: `${height}px` }"
       :type="type"
       :placeholder="placeholder"
       v-model="model"
     />
+    <div class="input-errors" v-if="errors">
+      <div class="input-error" v-for="i in errors" :key="i">{{ i }}</div>
+    </div>
   </div>
 </template>
 
@@ -44,8 +47,12 @@ export default {
       type: Boolean,
       required: false,
     },
-    disabled: {
+    readonly: {
       type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: Array,
       required: false,
     },
   },
@@ -62,7 +69,7 @@ export default {
       return {
         'input-outline': this.outline,
         'input-rounded': this.rounded,
-        'input-disabled': this.disabled,
+        'input-readonly': this.readonly,
       }
     },
   },
@@ -94,12 +101,12 @@ export default {
   font-size: 16px;
 }
 
-.input-disabled {
+.input-readonly {
   background: none;
-  //border: 1px dashed grey;
+  border-bottom: 1px dashed grey;
 }
 
-.input-disabled:hover {
+.input-readonly:hover {
   cursor: not-allowed;
 }
 </style>

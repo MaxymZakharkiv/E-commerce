@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import MButton from '@/components/ui-kit/MButton'
 
-describe('MButton testing', () => {
+describe('testing m-button', () => {
   it('render with label m-button', () => {
     const wrapper = mount(MButton, {
       slots: {

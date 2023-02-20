@@ -1,7 +1,6 @@
 <template>
   <router-view />
-  test -> {{ test }}
-  <m-input v-model="test" placeholder="text" disabled />
+  <m-input v-model="test" placeholder="text" readonly />
   <!--  test12345 abcd2jgA@-->
 </template>
 
