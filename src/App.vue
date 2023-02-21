@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <m-input v-model="test" placeholder="text" readonly />
+  <br />
   <!--  test12345 abcd2jgA@-->
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      test: null,
+      test: false,
     }
   },
 }
