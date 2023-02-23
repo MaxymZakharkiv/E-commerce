@@ -2,48 +2,16 @@
   <div>
     <div>Sign Up</div>
     <div class="form">
-      <div>
-        <input
-          v-model="formSignUp.username"
-          type="text"
-          placeholder="username"
-        />
-      </div>
-      <div>
-        <input
-          v-model="formSignUp.last_name"
-          type="text"
-          placeholder="last_name"
-        />
-      </div>
-      <div>
-        <input
-          v-model="formSignUp.first_name"
-          type="text"
-          placeholder="first_name"
-        />
-      </div>
-      <div>
-        <input
-          v-model="formSignUp.middle_name"
-          type="text"
-          placeholder="middle_name"
-        />
-      </div>
-      <div>
-        <input
-          v-model="formSignUp.password"
-          type="text"
-          placeholder="password"
-        />
-      </div>
-      <div>
-        <input
-          v-model="formSignUp.confirm_password"
-          type="text"
-          placeholder="confirm_password"
-        />
-      </div>
+      <m-input v-model="formSignUp.username" placeholder="username" />
+
+      <m-input v-model="formSignUp.last_name" placeholder="last_name" />
+      <m-input v-model="formSignUp.first_name" placeholder="first_name" />
+      <m-input v-model="formSignUp.middle_name" placeholder="middle_name" />
+      <m-input v-model="formSignUp.password" placeholder="password" />
+      <m-input
+        v-model="formSignUp.confirm_password"
+        placeholder="confirm_password"
+      />
       <div>
         <label for="male">Male</label>
         <input
@@ -62,11 +30,9 @@
           value="female"
         />
       </div>
+      <m-input v-model="formSignUp.email" placeholder="email" />
       <div>
-        <input v-model="formSignUp.email" type="text" placeholder="email" />
-      </div>
-      <div>
-        <button class="btn" @click="sentDataToServer">Sign up</button>
+        <m-button @click="sentDataToServer" rounded>Sign up</m-button>
       </div>
     </div>
   </div>
@@ -77,6 +43,7 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'SignUp',
+
   data() {
     return {
       formSignUp: {

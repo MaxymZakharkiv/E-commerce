@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ textAlign: align }">
+  <div :style="{ textAlign: align, 'margin-top': '10px' }">
     <button
       v-bind="$attrs"
       :disabled="disabled"

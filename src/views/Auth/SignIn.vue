@@ -3,23 +3,13 @@
     <div>Sign in</div>
     <div class="form">
       <div>
-        <input
-          class="login"
-          type="text"
-          placeholder="Login"
-          v-model="formSignIn.username"
-        />
+        <m-input placeholder="Login" v-model="formSignIn.username"/>
       </div>
       <div>
-        <input
-          class="password"
-          type="text"
-          placeholder="Password"
-          v-model="formSignIn.password"
-        />
+        <m-input placeholder="Password" v-model="formSignIn.password" />
       </div>
       <div>
-        <button class="btn" @click="sentDataToServer">Sign in</button>
+        <m-button rounded @click="sentDataToServer">Sign in</m-button>
       </div>
     </div>
   </div>
@@ -30,6 +20,8 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'SignIn',
+  components: {},
+
   data() {
     return {
       formSignIn: {
