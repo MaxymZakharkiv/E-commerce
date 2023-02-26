@@ -1,5 +1,22 @@
 export const routes = [
   {
+    path: '/auth',
+    name: 'auth-layout',
+    component: () => import('@/layouts/AuthLayout'),
+    children: [
+      {
+        path: 'sign-in',
+        name: 'sign-in',
+        component: () => import('@/views/Auth/SignIn'),
+      },
+      {
+        path: 'sign-up',
+        name: 'sign-up',
+        component: () => import('@/views/Auth/SignUp'),
+      },
+    ],
+  },
+  {
     path: '/',
     name: 'main-layout',
     component: () => import('@/layouts/MainLayout'),
@@ -17,20 +34,9 @@ export const routes = [
     ],
   },
   {
-    path: '/auth',
-    name: 'auth-layout',
-    component: () => import('@/layouts/AuthLayout'),
-    children: [
-      {
-        path: 'sign-in',
-        name: 'sign-in',
-        component: () => import('@/views/Auth/SignIn'),
-      },
-      {
-        path: 'sign-up',
-        name: 'sign-up',
-        component: () => import('@/views/Auth/SignUp'),
-      },
-    ],
+    path: '/admin',
+    name: 'admin-layout',
+    component: () => import('@/layouts/AdminLayout'),
+    children: [],
   },
 ]

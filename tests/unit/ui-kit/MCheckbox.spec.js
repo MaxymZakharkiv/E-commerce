@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import MCheckbox from '@/components/ui-kit/MCheckbox'
+import MCheckbox from '@/components/ui-kit/Checkbox/MCheckbox'
 
 describe('testing m-checkbox', () => {
   it('set label m-checkbox', () => {

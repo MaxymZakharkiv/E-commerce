@@ -4,24 +4,26 @@
       v-if="labelLeft"
       :class="{ 'disable-m-checkbox': disabled }"
       class="m-checkbox m-checkbox-label"
-      for="id-checkbox"
+      :for="id"
     >
       {{ label }}
     </label>
     <input
+      :id="id"
       :name="name"
       :class="classes"
       class="m-checkbox"
-      v-model="model"
+      :checked="checked"
+      :value="value"
       :disabled="disabled"
-      id="id-checkbox"
       type="checkbox"
+      @input="changeChecked"
     />
     <label
       v-if="!labelLeft"
       :class="{ 'disable-m-checkbox': disabled }"
       class="m-checkbox m-checkbox-label"
-      for="id-checkbox"
+      :for="id"
     >
       {{ label }}
     </label>
@@ -32,13 +34,17 @@
 export default {
   name: 'MCheckbox',
   props: {
+    id: {
+      type: Number,
+      required: false,
+    },
     label: {
       type: String,
       required: false,
     },
-    modelValue: {
-      type: Boolean,
-      required: false,
+    value: {
+      type: String,
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -52,19 +58,43 @@ export default {
       type: Boolean,
       required: false,
     },
+    checked: {
+      type: Boolean,
+      required: false,
+    },
+    group: {
+      type: Boolean,
+      required: false,
+    },
+    // modelValue: {
+    //   type: Boolean,
+    //   required: false,
+    // },
   },
   computed: {
-    model: {
-      get() {
-        return this.modelValue
-      },
-      set(val) {
-        this.$emit('update:modelValue', val)
-      },
-    },
+    //   model: {
+    //     get() {
+    //       return this.modelValue
+    //     },
+    //     set(val) {
+    //       this.$emit('update:modelValue', val)
+    //     },
+    //   },
     classes() {
       return {
         'disable-m-checkbox': this.disabled,
+      }
+    },
+  },
+  methods: {
+    changeChecked(event) {
+      if (this.group) {
+        this.$emit('updateGroupCheckbox', {
+          optionId: this.id,
+          checked: event.target.checked,
+        })
+      } else {
+        this.$emit('update:checked', event.target.checked)
       }
     },
   },
@@ -76,6 +106,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .m-checkbox {
   cursor: pointer;
@@ -84,7 +115,7 @@ export default {
 }
 
 .m-checkbox-label {
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 5px;
   user-select: none;
 }
